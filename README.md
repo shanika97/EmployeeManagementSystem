@@ -8,5 +8,5 @@ Run ng serve for a dev server. Navigate to http://localhost:4200/. The applicati
 Further help
 To get more help on the Angular CLI use ng help or go check out the Angular CLI Overview and Command Reference page.
 
-
+#Adding profile picture
 here I update new feature.Now user can upload profile pic .
