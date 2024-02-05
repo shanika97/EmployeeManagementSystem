@@ -9,4 +9,4 @@ Further help
 To get more help on the Angular CLI use ng help or go check out the Angular CLI Overview and Command Reference page.
 
 
-here i update new feature.Now user can upload profile pic .
+here I update new feature.Now user can upload profile pic .
