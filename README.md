@@ -10,3 +10,6 @@ To get more help on the Angular CLI use ng help or go check out the Angular CLI 
 
 #Adding profile picture
 here I update new feature.Now user can upload profile pic .
+
+
+![employee-management](https://github.com/user-attachments/assets/dde600b0-2a91-48f1-8e15-c1c6dfb65d37)
