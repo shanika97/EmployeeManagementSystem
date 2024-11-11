@@ -1,0 +1,70 @@
+<div class="row">
+  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+  <div class="col-md-7">
+    <h2>Login</h2>
+    <hr />
+    <div class="imgcontainer">
+      <img src="./assets/img_avatar2.png" alt="Avatar" class="avatar" />
+    </div>
+    <div class="card card-body bg-light">
+      <form class="form-horizontal">
+        <form class="was-validated">
+          <div class="form-group">
+            <label>User Name</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              maxlength="10"
+              [(ngModel)]="username"
+              [ngModelOptions]="{ standalone: true }"
+              maxlength="30"
+              class="form-control"
+              placeholder="Enter username" required />
+
+            <div class="invalid-feedback text-danger">
+              Please enter your username
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              maxlength="8"
+              [(ngModel)]="password"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="password"
+              placeholder="Enter Password" required />
+            <div class="invalid-feedback text-danger">
+              Please enter your password
+            </div>
+            <br />
+          </div>
+          <div class="form-group">
+            <button type="reset" class="btn btn-danger" (click)="cleardata()">
+              Clear
+            </button>
+
+            &nbsp; &nbsp;
+
+            <button type="submit" class="btn btn-primary" (click)="Login()">
+              Login
+            </button>
+            &nbsp; &nbsp; &nbsp;
+            <div class="nu" mt-lg-5>
+              <br>
+              <p> Don't have Account ?? Please Click &nbsp;&nbsp;
+                <button type="submit" class="btn btn-outline-success"
+                  (click)="show()">Register</button> </p>
+            </div>
+
+          </div>
+        </form>
+      </form>
+    </div>
+  </div>
+  <br />
+</div>

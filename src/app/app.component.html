@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align: center">Welcome</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <a routerLink="/" class="list-group-item"> DashBoard</a>
+        <a routerLink="/login" class="list-group-item"> Login</a>
+        <a routerLink="/register" class="list-group-item"> Register</a>
+     <!-- <a routerLink="/employee" class="list-group-item">Employee-Details</a> -->
+      </ul>
+    </div>
+
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

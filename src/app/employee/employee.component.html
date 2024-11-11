@@ -1,0 +1,292 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>List of Employees</h3>
+    <hr />
+    <div class="card card-body bg-light">
+      <div class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Actions</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let EmployeeItem of EmployeeArray">
+            <th scope="row">{{ EmployeeItem.id }}</th>
+            <td>{{ EmployeeItem.name }}</td>
+            <td>{{ EmployeeItem.email }}</td>
+            <td>{{ EmployeeItem.phone }}</td>
+            <td>{{ EmployeeItem.username }}</td>
+            <td>{{ EmployeeItem.password }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="setUpdate(EmployeeItem)">
+                Update
+              </button>
+            </td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="setDelete(EmployeeItem)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<hr />
+<!-- <div class="row">
+  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+  <div class="col-md-7">
+    <h2>Edit Employee</h2>
+    <hr />
+    <div class="card card-body bg-light">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+            name="name"
+            maxlength="30"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label> Email </label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            [ngModelOptions]="{ standalone: true }"
+            maxlength="100"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label>Number</label>
+          <input
+            type="text"
+            id="phone"
+            maxlength="10"
+            name="phone"
+            [(ngModel)]="phone"
+            [ngModelOptions]="{ standalone: true }"
+            maxlength="30"
+            class="form-control"
+            placeholder="Enter phone number"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label>User Name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            maxlength="10"
+            [(ngModel)]="username"
+            [ngModelOptions]="{ standalone: true }"
+            maxlength="30"
+            class="form-control"
+            placeholder="Enter username"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            maxlength="8"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="password"
+            placeholder="Enter Password"
+          /><br />
+        </div>
+        <div class="form-group">
+          <button type="reset" class="btn btn-danger" (click)="cleardata()">
+            Clear
+          </button>
+          &nbsp; &nbsp;
+
+          <button type="submit" class="btn btn-primary" (click)="save()">
+            Update
+          </button>
+          &nbsp;
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+<div class="row">
+  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+  <div class="col-md-7">
+    <h2>Update Employee</h2>
+
+    <hr />
+    <div class="card card-body bg-light">
+      <form class="form-horizontal">
+
+        <form class="was-validated">
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="validationname" class="form-label">Name </label>
+              <input
+                type="name"
+                [(ngModel)]="name"
+                [ngModelOptions]="{ standalone: true }"
+                name="name"
+                maxlength="30"
+                class="form-control"
+                id="validationname"
+                placeholder="Enter Your name" required /><br />
+
+              <div class="invalid-feedback">
+                Please enter your name
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group" [ngClass]="{'has-error': !isEmailValid}">
+              <label for="validationemail" class="form-label">Email </label>
+              <input
+                type="email"
+                [(ngModel)]="email"
+                [ngModelOptions]="{ standalone: true }"
+                name="email"
+                maxlength="30"
+                class="form-control"
+                id="validationemail"
+                placeholder="ex:- john@exmap.com" (input)="validateEmail()"
+                [class.has-error]="!isEmailValid"
+                required /><br />
+              <!-- <div *ngIf="emailErrorMessage" class="invalid-feedback">
+                {{ emailErrorMessage }}
+              </div> -->
+
+              <span *ngIf="!isEmailValid" class="error-mark">Email not in
+                correct pattern</span>
+              <br />
+              <div *ngIf="!isEmailValid" class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group" [ngClass]="{'has-error': !isPhoneValid}">
+              <label for="validationnumber" class="form-label">Number </label>
+              <input
+                type="text"
+                maxlength="10"
+                name="phone"
+                [(ngModel)]="phone"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="validationnumber"
+                placeholder="Enter phone number" (input)="validatePhone()"
+                [class.has-error]="!isPhoneValid"
+                required /><br />
+              <span *ngIf="!isPhoneValid" class="error-mark">Invalid phone
+                number</span>
+              <br />
+              <div *ngIf="!isPhoneValid" class="invalid-feedback">
+                Please enter a valid 10-digit phone number.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group" [ngClass]="{'has-error': isUsernameTaken}">
+              <label for="validationusername" class="form-label">User
+                Name</label>
+              <input
+                type="text"
+                maxlength="8"
+                name="username"
+                [(ngModel)]="username"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="validationusername"
+                placeholder="Enter username"
+                (input)="validateUsername()"
+                required /><br />
+              <div *ngIf="isUsernameTaken" class="error-mark">This username is
+                already taken. Please choose another.</div>
+            </div>
+            <div *ngIf="!isPasswordValid" class="invalid-feedback">
+              Please enter your name
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="validationpassword"
+                class="form-label">Password</label>
+              <input
+                type="password"
+                maxlength="8"
+                name="password"
+                [(ngModel)]="password"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="validationpassword"
+                placeholder="Enter password"
+                (input)="validatePassword()"
+                required />
+              <br />
+              <div *ngIf="!isPasswordValid" class="error-mark">Password length
+                must be between 3 and 8 characters.</div>
+              <div *ngIf="!isPasswordValid" class="invalid-feedback">
+                Please enter your password
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="reset" class="btn btn-danger" (click)="cleardata()">
+              Clear
+            </button>
+            &nbsp; &nbsp;
+
+            <button type="submit" class="btn btn-primary" (click)="save()"
+              [disabled]="!isFormValid() || isSaveDisable">
+              Save
+            </button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+          </div>
+        </form>
+      </form>
+    </div>
+  </div>
+  <br />
+
+</div>

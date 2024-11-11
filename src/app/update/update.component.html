@@ -1,0 +1,89 @@
+<div class="row">
+  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+  <div class="col-md-7">
+    <h2>Update Employee</h2>
+    <hr />
+    <div class="card card-body bg-light">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+            name="name"
+            maxlength="30"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label> Email </label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            [ngModelOptions]="{ standalone: true }"
+            maxlength="100"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label>Number</label>
+          <input
+            type="text"
+            id="phone"
+            maxlength="10"
+            name="phone"
+            [(ngModel)]="phone"
+            [ngModelOptions]="{ standalone: true }"
+            maxlength="30"
+            class="form-control"
+            placeholder="Enter phone number"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label>User Name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            maxlength="10"
+            [(ngModel)]="username"
+            [ngModelOptions]="{ standalone: true }"
+            maxlength="30"
+            class="form-control"
+            placeholder="Enter username"
+          /><br />
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            maxlength="8"
+            [(ngModel)]="password"
+            [ngModelOptions]="{ standalone: true }"
+            class="form-control"
+            id="password"
+            placeholder="Enter Password"
+          /><br />
+        </div>
+        <div class="form-group">
+          <button type="reset" class="btn btn-danger">Clear</button>
+          &nbsp; &nbsp;
+
+          <button type="submit" class="btn btn-primary">Update</button>
+          &nbsp;
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
